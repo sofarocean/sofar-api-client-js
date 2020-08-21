@@ -194,3 +194,19 @@ sdk.waveSpectra.getWaveSpectraForecast({ latitude: 34.5, longitude: 200 }).then(
     });
 });
 ```
+
+## Development
+
+### Build
+
+The build step runs the typescript compilers and also recreates the documentation.
+
+```
+yarn build
+```
+
+### Test
+
+```
+yarn test
+```
