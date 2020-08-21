@@ -50,7 +50,7 @@ sdk.spotters.getSpotters().then((spotters) => {
 
 ## Documentation
 
-For the full API documentation, see [here](https://wavespotter.github.io/sofar-api-sdk-js/).
+For the full API documentation, see [here](https://sofarocean.github.io/sofar-api-client-js/).
 
 ## Examples
 
