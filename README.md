@@ -12,7 +12,7 @@ Check out our weather dashboard at [https://weather.sofarocean.com/](https://wea
 ## Installing
 
 ```
-npm install --save @sofarocean/sofar-sdk
+npm install --save @sofarocean/sofar-api-client
 ```
 
 ## Authentication
