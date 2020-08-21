@@ -1,6 +1,6 @@
 {
-    "name": "@sofarocean/sofar-sdk",
-    "version": "0.2.2",
+    "name": "@sofarocean/sofar-api-client",
+    "version": "1.0.0",
     "description": "JS SDK for accessing the SFOAR APIs",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -8,10 +8,10 @@
         "dist"
     ],
     "author": "Dominik Fretz <dominik@sofarocean.com>",
-    "license": "MIT",
+    "license": "Apache-2.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/wavespotter/sofar-api-sdk-js"
+        "url": "https://github.com/sofarocean/sofar-api-client-js"
     },
     "scripts": {
         "build": "rm docs -rf && rm dist -rf && npx tsc -p . && npx typedoc --tsconfig tsconfig.json",
@@ -24,7 +24,9 @@
     },
     "keywords": [
         "sofar",
-        "sdk"
+        "sdk",
+        "api",
+        "client"
     ],
     "husky": {
         "hooks": {
