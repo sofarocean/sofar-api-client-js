@@ -1,0 +1,64 @@
+{
+    "name": "@sofarocean/sofar-sdk",
+    "version": "0.2.2",
+    "description": "JS SDK for accessing the SFOAR APIs",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "author": "Dominik Fretz <dominik@sofarocean.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wavespotter/sofar-api-sdk-js"
+    },
+    "scripts": {
+        "build": "rm docs -rf && rm dist -rf && npx tsc -p . && npx typedoc --tsconfig tsconfig.json",
+        "build:live": "npx nodemon --watch 'src/**/*.ts' --exec 'npx' ts-node src/index.ts",
+        "build:testlive": "npx nodemon --watch 'src/**/*.ts' --exec 'yarn' test",
+        "test": "yarn jest --verbose --coverage",
+        "test:live": "yarn jest --watchAll",
+        "lint": "npx tsc --noEmit && npx eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+        "docs": "npx typedoc --tsconfig tsconfig.json"
+    },
+    "keywords": [
+        "sofar",
+        "sdk"
+    ],
+    "husky": {
+        "hooks": {
+            "pre-commit": "npx lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,ts,tsx}": [
+            "npx eslint --fix"
+        ]
+    },
+    "dependencies": {
+        "@types/node": "13.13.1",
+        "@types/superagent": "^4.1.7",
+        "superagent": "^5.2.2",
+        "ts-node": "8.9.0",
+        "typescript": "3.8.3"
+    },
+    "devDependencies": {
+        "@types/jest": "25.2.1",
+        "@types/temp": "^0.8.34",
+        "@typescript-eslint/eslint-plugin": "2.29.0",
+        "@typescript-eslint/parser": "2.29.0",
+        "eslint": "6.8.0",
+        "eslint-config-prettier": "6.10.1",
+        "eslint-plugin-prettier": "3.1.3",
+        "husky": "4.2.5",
+        "jest": "25.4.0",
+        "jshint": "2.11.0",
+        "lint-staged": "10.1.6",
+        "prettier": "2.0.4",
+        "superagent-mock": "^3.7.0",
+        "temp": "^0.9.1",
+        "ts-jest": "25.4.0",
+        "typedoc": "^0.17.8"
+    }
+}

@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build:live",
+			"problemMatcher": [
+				"$eslint-compact"
+			],
+			"group": "build",
+			"label": "npm: build:live",
+			"detail": "npx nodemon --watch 'src/**/*.ts' --exec 'npx' ts-node src/index.ts"
+		}
+	]
+}

@@ -1,0 +1,288 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>SOFAR API SDK - v0.2.2</title>
+	<meta name="description" content="Documentation for SOFAR API SDK - v0.2.2">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">SOFAR API SDK - v0.2.2</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>SOFAR API SDK - v0.2.2</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#sofar-javascript-sdk" id="sofar-javascript-sdk" style="color: inherit; text-decoration: none;">
+					<h1>SOFAR JavaScript SDK</h1>
+				</a>
+				<p>Welcome to the SOFAR JavaScript/TS SDK.
+				It is a simple and easy to use way to access the following API endpoints:</p>
+				<ul>
+					<li>Marine Weather</li>
+					<li>Wave Spectra</li>
+					<li>Spotter Sensor</li>
+				</ul>
+				<p>Check out our weather dashboard at <a href="https://weather.sofarocean.com/">https://weather.sofarocean.com/</a>.</p>
+				<a href="#installing" id="installing" style="color: inherit; text-decoration: none;">
+					<h2>Installing</h2>
+				</a>
+				<pre><code><span class="hljs-built_in">npm</span> install --save @sofarocean/sofar-sdk</code></pre>
+				<a href="#authentication" id="authentication" style="color: inherit; text-decoration: none;">
+					<h2>Authentication</h2>
+				</a>
+				<p>The Sofar API uses token-based authentication. To get started using the Sofar API, you&#39;ll need to retrieve or generate an authentication token.</p>
+				<p>Get your API token in the <a href="https://weather.sofarocean.com/">Weather Dashboard</a> by signing up for a user, then navigating to <a href="https://weather.sofarocean.com/admin/api-access"><em>Account</em> <strong>&gt;</strong> <em>API Access</em></a>.</p>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>Typescript:</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { SDK } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;sofar-sdk&#x27;</span>;
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">main</span>(<span class="hljs-params"></span>): <span class="hljs-title">Promise</span>&lt;<span class="hljs-title">number</span>&gt; </span>{
+    <span class="hljs-keyword">const</span> apiKey = <span class="hljs-string">&#x27;YOUR API KEY&#x27;</span>;
+    <span class="hljs-keyword">const</span> sdk = <span class="hljs-keyword">new</span> SDK(apiKey);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> sdk.spotters.getSpotters());
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+main();</code></pre>
+				<p>JavaScript:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">var</span> SDK = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@sofarocean/sofar-sdk&#x27;</span>).SDK;
+<span class="hljs-keyword">var</span> apiKey = <span class="hljs-string">&#x27;YOUR API KEY&#x27;</span>;
+
+<span class="hljs-keyword">var</span> sdk = <span class="hljs-keyword">new</span> SDK(apiKey);
+sdk.spotters.getSpotters().then(<span class="hljs-function">(<span class="hljs-params">spotters</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(spotters);
+});</code></pre>
+				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
+					<h2>Documentation</h2>
+				</a>
+				<p>For the full API documentation, see <a href="https://wavespotter.github.io/sofar-api-sdk-js/">here</a>.</p>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h2>Examples</h2>
+				</a>
+				<a href="#marine-weather" id="marine-weather" style="color: inherit; text-decoration: none;">
+					<h3>Marine Weather</h3>
+				</a>
+				<a href="#get-point-forecast" id="get-point-forecast" style="color: inherit; text-decoration: none;">
+					<h4>Get Point Forecast</h4>
+				</a>
+				<pre><code class="language-js">sdk.marineWeather
+    .getPointForecast(<span class="hljs-string">&#x27;SofarOperationalWaveModel&#x27;</span>, <span class="hljs-number">-152.0001</span>, <span class="hljs-number">37.0001</span>, [
+        <span class="hljs-string">&#x27;SofarOperationalWaveModel-significantWaveHeight&#x27;</span>,
+        <span class="hljs-string">&#x27;SofarOperationalWaveModel-meanDirection&#x27;</span>,
+    ])
+    .then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(data);
+    });</code></pre>
+				<a href="#get-point-hindcast" id="get-point-hindcast" style="color: inherit; text-decoration: none;">
+					<h4>Get Point Hindcast</h4>
+				</a>
+				<pre><code class="language-js">sdk.marineWeather
+    .getPointHindcast(
+        <span class="hljs-string">&#x27;SofarOperationalWaveModel&#x27;</span>,
+        <span class="hljs-number">-152</span>,
+        <span class="hljs-number">37</span>,
+        <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&#x27;2020-07-12T22:00:00Z&#x27;</span>),
+        <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">&#x27;2020-07-12T24:00:00Z&#x27;</span>),
+        [<span class="hljs-string">&#x27;SofarOperationalWaveModel-significantWaveHeight&#x27;</span>, <span class="hljs-string">&#x27;SofarOperationalWaveModel-meanDirection&#x27;</span>],
+    )
+    .then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(data);
+    });</code></pre>
+				<a href="#get-weather-models" id="get-weather-models" style="color: inherit; text-decoration: none;">
+					<h3>Get Weather models</h3>
+				</a>
+				<pre><code class="language-js">sdk.marineWeather
+    .getModels()
+    .then(<span class="hljs-function">(<span class="hljs-params">models</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Weather models:&#x27;</span>);
+        <span class="hljs-built_in">console</span>.dir(models, { <span class="hljs-attr">depth</span>: <span class="hljs-literal">null</span> });
+    })
+    .catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.error(<span class="hljs-built_in">JSON</span>.stringify(err));
+    });</code></pre>
+				<a href="#get-model-metadata" id="get-model-metadata" style="color: inherit; text-decoration: none;">
+					<h3>Get model metadata</h3>
+				</a>
+				<pre><code class="language-js">sdk.marineWeather
+    .getModelMetadata(<span class="hljs-string">&#x27;NOAACoralReefWatch&#x27;</span>)
+    .then(<span class="hljs-function">(<span class="hljs-params">metadata</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Model category metadata:&#x27;</span>);
+        <span class="hljs-built_in">console</span>.dir(metadata, { <span class="hljs-attr">depth</span>: <span class="hljs-literal">null</span> });
+    })
+    .catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.error(<span class="hljs-built_in">JSON</span>.stringify(err));
+    });</code></pre>
+				<a href="#get-data-categories" id="get-data-categories" style="color: inherit; text-decoration: none;">
+					<h3>Get data categories</h3>
+				</a>
+				<pre><code class="language-js">sdk.marineWeather
+    .getDataCategories()
+    .then(<span class="hljs-function">(<span class="hljs-params">categories</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Data categories:&#x27;</span>);
+        <span class="hljs-built_in">console</span>.dir(categories, { <span class="hljs-attr">depth</span>: <span class="hljs-literal">null</span> });
+    })
+    .catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.error(<span class="hljs-built_in">JSON</span>.stringify(err));
+    });</code></pre>
+				<a href="#get-data-category-metadata" id="get-data-category-metadata" style="color: inherit; text-decoration: none;">
+					<h3>Get data category metadata</h3>
+				</a>
+				<pre><code class="language-js">sdk.marineWeather
+    .getDataCategoryMetadata(<span class="hljs-string">&#x27;coralEcosystem&#x27;</span>)
+    .then(<span class="hljs-function">(<span class="hljs-params">metadata</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Data category metadata:&#x27;</span>);
+        <span class="hljs-built_in">console</span>.dir(metadata, { <span class="hljs-attr">depth</span>: <span class="hljs-literal">null</span> });
+    })
+    .catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.error(<span class="hljs-built_in">JSON</span>.stringify(err));
+    });</code></pre>
+				<a href="#spotter" id="spotter" style="color: inherit; text-decoration: none;">
+					<h3>Spotter</h3>
+				</a>
+				<a href="#get-a-list-of-spotters" id="get-a-list-of-spotters" style="color: inherit; text-decoration: none;">
+					<h4>Get a list of spotters</h4>
+				</a>
+				<pre><code class="language-js">sdk.spotters.getSpotters().then(<span class="hljs-function">(<span class="hljs-params">spotters</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(spotters);
+});</code></pre>
+				<a href="#get-wave-data-from-a-specific-spotter" id="get-wave-data-from-a-specific-spotter" style="color: inherit; text-decoration: none;">
+					<h3>Get Wave Data from a specific Spotter</h3>
+				</a>
+				<pre><code class="language-js">sdk.spotters
+    .getSpotter(<span class="hljs-string">&#x27;SPOT-0222&#x27;</span>)
+    .getWaveData({ <span class="hljs-attr">includeWindData</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">includeFrequencyData</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">limit</span>: <span class="hljs-number">1</span> })
+    .then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(data);
+    });</code></pre>
+				<a href="#wave-spectra" id="wave-spectra" style="color: inherit; text-decoration: none;">
+					<h3>Wave Spectra</h3>
+				</a>
+				<a href="#get-wave-specra-list-and-download-files" id="get-wave-specra-list-and-download-files" style="color: inherit; text-decoration: none;">
+					<h4>Get Wave Specra List and download files</h4>
+				</a>
+				<pre><code class="language-js">sdk.waveSpectra
+    .getWaveSpectraForecast({ <span class="hljs-attr">latitude</span>: <span class="hljs-number">34.5</span>, <span class="hljs-attr">longitude</span>: <span class="hljs-number">200</span> })
+    .then(<span class="hljs-function">(<span class="hljs-params">spectra</span>) =&gt;</span> {
+        spectra
+            .download(<span class="hljs-string">`<span class="hljs-subst">${spectra.latitude}</span>_<span class="hljs-subst">${spectra.longitude}</span>.netcdf`</span>)
+            .then(<span class="hljs-function">() =&gt;</span> {
+                <span class="hljs-comment">// successfully written data to stream.</span>
+            })
+            .catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+                <span class="hljs-built_in">console</span>.error(err);
+            });
+    })
+    .catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.error(err);
+    });</code></pre>
+				<a href="#download-wave-spectra-file" id="download-wave-spectra-file" style="color: inherit; text-decoration: none;">
+					<h3>Download Wave Spectra File</h3>
+				</a>
+				<pre><code class="language-js">sdk.waveSpectra.getWaveSpectraForecast({ <span class="hljs-attr">latitude</span>: <span class="hljs-number">34.5</span>, <span class="hljs-attr">longitude</span>: <span class="hljs-number">200</span> }).then(<span class="hljs-function">(<span class="hljs-params">spectra</span>) =&gt;</span> {
+    spectra.download(<span class="hljs-string">&#x27;test.netcdf&#x27;</span>).then(<span class="hljs-function">() =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;done&#x27;</span>);
+    });
+});</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/marineweather.html" class="tsd-kind-icon">Marine<wbr>Weather</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/sdk.html" class="tsd-kind-icon">SDK</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/spotter.html" class="tsd-kind-icon">Spotter</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/spotters.html" class="tsd-kind-icon">Spotters</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/wavespectra.html" class="tsd-kind-icon">Wave<wbr>Spectra</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

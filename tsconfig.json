@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "es5",
+        "lib": ["es6", "dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "downlevelIteration": true,
+        "jsx": "preserve",
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true
+    },
+    "include": ["src"],
+    "typedocOptions": {
+        "name": "SOFAR API SDK",
+        "inputFiles": ["./src/"],
+        "mode": "file",
+        "out": "docs",
+        "exclude": ["**/*.test.ts", "**/*TestSuport.ts"],
+        "excludePrivate": true,
+        "toc": ["SDK", "MarineWeather", "Spotters", "Spotter", "WaveSpectra"],
+        "includeVersion": true
+    }
+}
