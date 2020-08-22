@@ -1,6 +1,6 @@
-# SOFAR JavaScript SDK
+# SOFAR API Client
 
-Welcome to the SOFAR JavaScript/TS SDK.
+Welcome to the SOFAR API Client.
 It is a simple and easy to use way to access the following API endpoints:
 
 -   Marine Weather
