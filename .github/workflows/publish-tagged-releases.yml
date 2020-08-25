@@ -2,6 +2,7 @@ name: Publish tagged versions to NPM
 
 on:
     push:
+        branches: test/*
         tags: releases/*
 
 jobs:
@@ -12,6 +13,18 @@ jobs:
             - uses: actions/setup-node@v2-beta
               with:
                   node-version: '12'
+            - name: Get the version
+                  id: get_version
+                  run: |
+                    echo ::set-output name=TAG_VERSION::${GITHUB_REF#refs/tags/releases/}
+                    echo ::set-output name=PACKAGE_VERSION::$(node -p -e "require('./package.json').version")
+            - shell: bash
+                  env:
+                    TAG_VERSION: ${{ steps.get_version.outputs.TAG_VERSION }}
+                    PACKAGE_VERSION: ${{ steps.get_version.outputs.PACKAGE_VERSION }}
+                  run: |
+                    echo "TAG_VERSION: ${TAG_VERSION} - PACKAGE_VERSION: ${PACKAGE_VERSION}
+
             - run: npm install
             - run: npm test
             - shell: bash
