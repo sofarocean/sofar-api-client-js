@@ -1,0 +1,23 @@
+name: Publish tagged versions to NPM
+
+on:
+    push:
+        tags: releases/*
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2-beta
+              with:
+                  node-version: '12'
+            - run: npm install
+            - run: npm test
+            - shell: bash
+              # The NPMJS auth token is a github project secret containing an auth token genereated by and under the account of Dominik Fretz
+              env:
+                  NPMJS_AUTH_TOKEN: ${{ secrets.NPMJS_AUTH_TOKEN }}
+              run: |
+                  echo "//registry.npmjs.org/:_authToken=${NPMJS_AUTH_TOKEN}" > .npmrc
+                  npm publish --scope public --dry-run
