@@ -20,7 +20,8 @@ jobs:
                   echo ::set-output name=TAG_VERSION::${GITHUB_REF#refs/heads/test/}
                   echo ::set-output name=PACKAGE_VERSION::$(node -p -e "require('./package.json').version")
 
-            - shell: bash
+            - name: Validate tag version to package version
+              shell: bash
               env:
                   TAG_VERSION: ${{ steps.get_version.outputs.TAG_VERSION }}
                   PACKAGE_VERSION: ${{ steps.get_version.outputs.PACKAGE_VERSION }}
@@ -30,12 +31,13 @@ jobs:
                     exit 1;
                   fi
 
-            - run: npm install
-            - run: npm test
-            - shell: bash
+            - name: npm install test and publish
+              shell: bash
               # The NPMJS auth token is a github project secret containing an auth token genereated by and under the account of Dominik Fretz
               env:
                   NPMJS_AUTH_TOKEN: ${{ secrets.NPMJS_AUTH_TOKEN }}
               run: |
+                  npm install
+                  npm test
                   echo "//registry.npmjs.org/:_authToken=${NPMJS_AUTH_TOKEN}" > .npmrc
                   npm publish --scope public --dry-run
