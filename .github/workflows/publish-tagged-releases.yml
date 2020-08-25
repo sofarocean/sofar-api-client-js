@@ -25,7 +25,10 @@ jobs:
                   TAG_VERSION: ${{ steps.get_version.outputs.TAG_VERSION }}
                   PACKAGE_VERSION: ${{ steps.get_version.outputs.PACKAGE_VERSION }}
               run: |
-                  echo "TAG_VERSION: ${TAG_VERSION} - PACKAGE_VERSION: ${PACKAGE_VERSION}"
+                  if [ "${TAG_VERSION}" != "${PACKAGE_VERSION}" ]; then
+                    echo "Tag version number '${TAG_VERSION}' does not equal package.json version number '${PACKAGE_VERSION}'!"
+                    exit 1;
+                  fi
 
             - run: npm install
             - run: npm test
