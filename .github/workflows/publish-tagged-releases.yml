@@ -14,10 +14,11 @@ jobs:
               with:
                   node-version: '12'
             - name: Get the version
-                  id: get_version
-                  run: |
-                    echo ::set-output name=TAG_VERSION::${GITHUB_REF#refs/tags/releases/}
-                    echo ::set-output name=PACKAGE_VERSION::$(node -p -e "require('./package.json').version")
+              id: get_version
+              run: |
+                echo ::set-output name=TAG_VERSION::${GITHUB_REF#refs/tags/releases/}
+                echo ::set-output name=PACKAGE_VERSION::$(node -p -e "require('./package.json').version")
+                
             - shell: bash
                   env:
                     TAG_VERSION: ${{ steps.get_version.outputs.TAG_VERSION }}
