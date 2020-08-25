@@ -24,7 +24,7 @@ jobs:
                   TAG_VERSION: ${{ steps.get_version.outputs.TAG_VERSION }}
                   PACKAGE_VERSION: ${{ steps.get_version.outputs.PACKAGE_VERSION }}
               run: |
-                  echo "TAG_VERSION: ${TAG_VERSION} - PACKAGE_VERSION: ${PACKAGE_VERSION}
+                  echo "TAG_VERSION: ${TAG_VERSION} - PACKAGE_VERSION: ${PACKAGE_VERSION}"
 
             - run: npm install
             - run: npm test
