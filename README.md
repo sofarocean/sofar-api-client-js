@@ -210,3 +210,13 @@ yarn build
 ```
 yarn test
 ```
+
+### Committing & Docs
+
+When commiting to master, the docs directory is updated automatically through a GitHub Workflow and commited.
+The /docs directory is used for github pages.
+
+### Releases
+
+Releases to NPM are handled through a github action workflow.
+To release a new version, update the version in the package.json file, then create a new tag in /releases/VERSION_NUMBER (eg: /releases/1.0.2).
