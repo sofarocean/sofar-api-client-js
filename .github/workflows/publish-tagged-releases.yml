@@ -2,7 +2,6 @@ name: Publish tagged versions to NPM
 
 on:
     push:
-        branches: test/*
         tags: releases/*
 
 jobs:
@@ -40,4 +39,4 @@ jobs:
                   npm install
                   npm test
                   echo "//registry.npmjs.org/:_authToken=${NPMJS_AUTH_TOKEN}" > .npmrc
-                  npm publish --scope public --dry-run
+                  npm publish --scope public
