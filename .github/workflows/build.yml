@@ -23,7 +23,7 @@ jobs:
             - run: npm build
             - name: Commit docs
               run: |
-                  if ! git diff-index --quiet HEAD --; then
+                  if git diff-index --quiet HEAD --; then
                     git config --local user.email "info@sofarocean.com"
                     git config --local user.name "GitHub Action"
                     git add ./docs
