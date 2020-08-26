@@ -16,7 +16,6 @@ jobs:
               id: get_version
               run: |
                   echo ::set-output name=TAG_VERSION::${GITHUB_REF#refs/tags/releases/}
-                  echo ::set-output name=TAG_VERSION::${GITHUB_REF#refs/heads/test/}
                   echo ::set-output name=PACKAGE_VERSION::$(node -p -e "require('./package.json').version")
 
             - name: Validate tag version to package version
@@ -38,5 +37,6 @@ jobs:
               run: |
                   npm install
                   npm test
+                  npm run-script build
                   echo "//registry.npmjs.org/:_authToken=${NPMJS_AUTH_TOKEN}" > .npmrc
                   npm publish --scope public
