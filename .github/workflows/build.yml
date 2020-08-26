@@ -4,6 +4,8 @@ on:
     push:
         branches:
             - master
+        paths-ignore:
+            - 'docs/**'
     pull_request:
         branches:
             - master
@@ -18,3 +20,18 @@ jobs:
                   node-version: '12'
             - run: npm install
             - run: npm test
+            - run: npm build
+            - name: Commit docs
+              with:
+                  branch: master
+              run: |
+                  git config --local user.email "info@sofarocean.com"
+                  git config --local user.name "GitHub Action"
+                  git add ./docs
+                  git commit -m "Update docs"
+            - name: Push changes # push the output folder to your repo
+              uses: ad-m/github-push-action@master
+              with:
+                  branch: master
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  force: true
