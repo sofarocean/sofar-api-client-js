@@ -23,10 +23,12 @@ jobs:
             - run: npm build
             - name: Commit docs
               run: |
-                  git config --local user.email "info@sofarocean.com"
-                  git config --local user.name "GitHub Action"
-                  git add ./docs
-                  git commit -m "Update docs"
+                  if ! git diff-index --quiet HEAD --; then
+                    git config --local user.email "info@sofarocean.com"
+                    git config --local user.name "GitHub Action"
+                    git add ./docs
+                    git commit -m "Update docs"
+                  fi
             - name: Push changes # push the output folder to your repo
               uses: ad-m/github-push-action@master
               with:
