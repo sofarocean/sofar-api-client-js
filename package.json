@@ -1,6 +1,6 @@
 {
     "name": "@sofarocean/sofar-api-client",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "JS SDK for accessing the SFOAR APIs",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
