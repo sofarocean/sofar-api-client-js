@@ -22,8 +22,6 @@ jobs:
             - run: npm test
             - run: npm build
             - name: Commit docs
-              with:
-                  branch: master
               run: |
                   git config --local user.email "info@sofarocean.com"
                   git config --local user.name "GitHub Action"
