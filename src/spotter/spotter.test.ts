@@ -97,22 +97,6 @@ describe('Spotter test', () => {
                 expect(data.spotterId).toBe(spotterId);
             });
 
-            it('startDate', async () => {
-                const startDate = new Date();
-
-                superagentMock = getProofingMock('startDate', encodeURIComponent(startDate.toISOString()), expected);
-                const data = await spotter.getWaveData({ startDate: startDate });
-                expect(data.spotterId).toBe(spotterId);
-            });
-
-            it('endDate', async () => {
-                const endDate = new Date();
-
-                superagentMock = getProofingMock('endDate', encodeURIComponent(endDate.toISOString()), expected);
-                const data = await spotter.getWaveData({ endDate: endDate });
-                expect(data.spotterId).toBe(spotterId);
-            });
-
             afterAll(async (done) => {
                 superagentMock.unset();
                 done();

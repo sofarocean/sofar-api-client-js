@@ -19,20 +19,6 @@ export type SpotterWaveDataRequest = {
      * @default false
      */
     includeFrequencyData: boolean;
-    /**
-     * Timestamp for start of data range.
-     * @default null
-     */
-    startDate?: Date;
-    /**
-     * Timestamp for end of data range.
-     * @default now()
-     */
-    endDate?: Date;
-    /**
-     * Maximum number of samples to retrieve in request.
-     */
-    limit: number;
 };
 
 export type SpotterWave = {

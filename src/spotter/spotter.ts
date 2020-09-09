@@ -27,7 +27,7 @@ export class Spotter {
     /**
      * Returns surface data for this spotter.
      *
-     * A maximum of 500 samples may be retrieved in a single request (100 if includeFrequencyData==true).
+     * The past 72-hour realtime wave data will be retrieved in a single request.
      * Frequency data is only available for samples collected from Spotters in Full Waves Mode.
      *
      * @param params Parameters to retrieve {@link SpotterWaveDataRequest|wave data}
@@ -37,9 +37,6 @@ export class Spotter {
             includeWindData: false,
             includeDirectionalMoments: false,
             includeFrequencyData: false,
-            startDate: undefined,
-            endDate: undefined,
-            limit: 20,
         },
     ): Promise<SpotterWaveData> {
         return new Promise<SpotterWaveData>((resolve, reject) => {

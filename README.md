@@ -157,7 +157,7 @@ sdk.spotters.getSpotters().then((spotters) => {
 ```js
 sdk.spotters
     .getSpotter('SPOT-0222')
-    .getWaveData({ includeWindData: true, includeFrequencyData: true, limit: 1 })
+    .getWaveData({ includeWindData: true, includeFrequencyData: true })
     .then((data) => {
         console.log(data);
     });
