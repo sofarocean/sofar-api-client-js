@@ -12,6 +12,9 @@ jobs:
             - uses: actions/setup-node@v2-beta
               with:
                   node-version: '12'
-            - run: |
+            - name: 'Run Integration test'
+              env:
+                  SOFAR_API_TOKEN: ${{ secrets.SOFAR_API_TOKEN }}
+              run: |
                   npm install
                   yarn integration-test
