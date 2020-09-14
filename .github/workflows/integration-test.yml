@@ -1,0 +1,16 @@
+name: 'Integration test API'
+on:
+    schedule:
+        - cron: '0 5 * * */2'
+
+jobs:
+    runIntegrationTest:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2-beta
+              with:
+                  node-version: '12'
+            - run: |
+                  npm install
+                  yarn integration-test

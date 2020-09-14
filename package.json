@@ -19,6 +19,7 @@
         "build:testlive": "npx nodemon --watch 'src/**/*.ts' --exec 'yarn' test",
         "test": "yarn jest --verbose --coverage",
         "test:live": "yarn jest --watchAll",
+        "integration-test": "yarn jest --verbose -c jest.config.integration.js",
         "lint": "npx tsc --noEmit && npx eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
         "docs": "npx typedoc --tsconfig tsconfig.json"
     },

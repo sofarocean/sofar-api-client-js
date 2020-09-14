@@ -59,12 +59,6 @@ export type SpotterWind = {
  */
 export class SpotterWaveData {
     spotterId = '';
-    /** Maximum number of samples to retrieve in request.
-     *  @default 20
-     *  Max: 500
-     *  Max: 100 if frequencyData included.
-     */
-    limit = 0;
     waves: SpotterWave[] = [];
     wind: SpotterWind[] = [];
 

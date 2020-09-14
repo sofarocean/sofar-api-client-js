@@ -69,7 +69,7 @@ describe('Spotter test', () => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             let superagentMock: any;
             let spotter: Spotter;
-            const expected = { data: { spotterId: spotterId, limit: 123, waves: [{}], wind: [{}] } };
+            const expected = { data: { spotterId: spotterId, waves: [{}], wind: [{}] } };
             beforeAll(() => {
                 spotter = new Spotter({ spotterId: spotterId }, apiKey);
             });
@@ -78,7 +78,6 @@ describe('Spotter test', () => {
                 superagentMock = getProofingMock('spotterId', spotterId, expected);
                 const data = await spotter.getWaveData();
                 expect(data.spotterId).toBe(spotterId);
-                expect(data.limit).toBe(123);
             });
 
             it('includeWindData', async () => {
