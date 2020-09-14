@@ -2,6 +2,7 @@ name: 'Integration test API'
 on:
     schedule:
         - cron: '0 5 * * */2'
+    workflow_dispatch:
 
 jobs:
     runIntegrationTest:
