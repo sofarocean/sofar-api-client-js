@@ -42,6 +42,7 @@ export type SpotterWave = {
 };
 
 export type SpotterWind = {
+    /** Unit: m/s */
     speed: number;
     /** Unit: degrees */
     direction: number;
